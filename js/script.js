@@ -11,16 +11,11 @@ const locationInfo = $('.location-info');
 let showDot = true;
 
 function update() {
-    showDot = !showDot;
     const now = new Date();
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     
     const options = { weekday: 'short' };
     const localeTime = new Date(now.toLocaleString("en-US", { timeZone }));
-
-    // Alternar visibilidad solo del segundo ':'
-    dots[1].classList.toggle('invisible', showDot);
-    dots[1].classList.toggle('visible', !showDot);
 
     // Mantener el primer ':' estático o cambiarlo al cambiar el minuto
     if (localeTime.getSeconds() === 0) {
@@ -38,5 +33,6 @@ function update() {
     locationInfo.textContent = `${timeZone} [GMT ${localeTime.getTimezoneOffset() / -60}]`;
 }
 
-setInterval(update, 500);
+// Cambiar el intervalo a 1000 ms para sincronizar con los segundos
+setInterval(update, 1000);
 update();
