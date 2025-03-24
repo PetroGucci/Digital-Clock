@@ -1,22 +1,13 @@
 body {
     background: rgb(0, 0, 0);
-    color: #fff;
-    font-family: 'Arial', sans-serif;
-    margin: 50px;
-    padding: 0;
-    overflow-x: hidden;
+    margin: 100px;
 }
 
 header {
-    position: relative;
-    top: 0;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
     display: flex;
-    align-items: center;
-    padding: 10px;
+    padding: 100px;
     z-index: 1000;
-    justify-content: center; /* Center banner */
+    justify-content: center;
 }
 
 @font-face {
@@ -32,10 +23,11 @@ header {
 .digital-clock {
     background-color: none;
     color: #ffff;
+    display: flex;
     border-radius: 2rem;
     user-select: none;
     padding: 0 2rem;
-    border: 0.5rem solidn#2d2d2d;
+    border: 0.5rem solid #2d2d2d;
 }
 
 .week{
@@ -66,13 +58,16 @@ header {
     font-family: "FX_LED";
 }
 
-.location-info {
+.GMT .location-info {
     font-family: "Hack";
+    position: relative;
+    display: flex;
+    left: -210px;
+    opacity: 0.7;
 }
 
 .hour,
-.min,
-.dot {
+.min, .sec, .dot {
     display: inline-block;
     font-size: 13rem;
 }
@@ -83,4 +78,7 @@ header {
 
 .invisible {
     visibility: hidden;
+}
+.visible {
+    visibility: visible;
 }
