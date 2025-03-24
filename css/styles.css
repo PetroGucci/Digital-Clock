@@ -12,12 +12,12 @@ header {
 
 @font-face {
     font-family: "FX_LED";
-    src: url("fonts/FX-LED Bold.TTF");
+    src: url("../fonts/FX-LED-Bold.TTF");
 }
 
 @font-face {
     font-family: "Hack";
-    src: url("fonts/Hack-Bold.ttf");
+    src: url("../fonts/Hack-Bold.ttf");
 }
 
 .digital-clock {
@@ -56,6 +56,20 @@ header {
 
 .time {
     font-family: "FX_LED";
+    position: relative; /* Necesario para posicionar elementos hijos */
+}
+
+.GMT {
+    position: absolute; /* Posiciona el GMT dentro del contenedor .time */
+    bottom: -50px; /* Coloca el GMT debajo de los números */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Ajusta el centrado */
+    font-family: "Hack"; /* Aplica la fuente Hack */
+    font-size: 1.2rem; /* Ajusta el tamaño de la fuente */
+    color: #ffffff; /* Color blanco para visibilidad */
+    opacity: 0.8; /* Hace que sea un poco translúcido */
+    text-align: center; /* Centra el texto */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
 }
 
 .GMT .location-info {
