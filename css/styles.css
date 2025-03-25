@@ -61,23 +61,21 @@ header {
 
 .GMT {
     position: absolute; /* Posiciona el GMT dentro del contenedor .time */
-    bottom: -50px; /* Coloca el GMT debajo de los números */
-    left: 50%; /* Centra horizontalmente */
-    transform: translateX(-50%); /* Ajusta el centrado */
+    bottom: -20px; /* Coloca el GMT en la parte inferior */
+    right: 0; /* Alinea el GMT a la derecha */
     font-family: "Hack"; /* Aplica la fuente Hack */
-    font-size: 1.2rem; /* Ajusta el tamaño de la fuente */
+    font-size: 1rem; /* Ajusta el tamaño de la fuente */
     color: #ffffff; /* Color blanco para visibilidad */
     opacity: 0.8; /* Hace que sea un poco translúcido */
-    text-align: center; /* Centra el texto */
+    text-align: right; /* Alinea el texto a la derecha */
     white-space: nowrap; /* Evita que el texto se divida en varias líneas */
 }
 
+.GMT .gmt,
+.GMT .time-zone,
 .GMT .location-info {
-    font-family: "Hack";
-    position: relative;
-    display: flex;
-    left: -210px;
-    opacity: 0.7;
+    display: block; /* Asegura que cada elemento esté en una línea separada */
+    margin: 0; /* Elimina márgenes adicionales */
 }
 
 .hour,
