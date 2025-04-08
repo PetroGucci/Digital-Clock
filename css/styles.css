@@ -1,11 +1,15 @@
 body {
     background: rgb(0, 0, 0);
-    margin: 100px;
+    margin: 0; /* Elimina márgenes predeterminados */
+    display: flex; /* Usa flexbox para centrar contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la ventana */
 }
 
 header {
     display: flex;
-    padding: 100px;
+    padding: 0; /* Elimina el padding adicional */
     z-index: 1000;
     justify-content: center;
 }
@@ -24,10 +28,13 @@ header {
     background-color: none;
     color: #ffff;
     display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 2rem;
     user-select: none;
-    padding: 0 2rem;
+    padding: 0rem 1rem 1rem 1rem;
     border: 0.5rem solid #2d2d2d;
+    margin: 0; /* Elimina márgenes adicionales */
 }
 
 .week{
@@ -61,7 +68,7 @@ header {
 
 .GMT {
     position: absolute; /* Posiciona el GMT dentro del contenedor .time */
-    bottom: -20px; /* Coloca el GMT en la parte inferior */
+    bottom: -05px; /* Coloca el GMT en la parte inferior */
     right: 0; /* Alinea el GMT a la derecha */
     font-family: "Hack"; /* Aplica la fuente Hack */
     font-size: 1rem; /* Ajusta el tamaño de la fuente */
@@ -109,4 +116,58 @@ header {
 
 .dot.seconds {
     animation: blink 1s step-start infinite;
+}
+
+.settings-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.settings-button {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.settings-panel {
+    display: none;
+    flex-direction: column;
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.settings-panel button {
+    background-color: #444;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.settings-panel button:hover {
+    background-color: #666;
+}
+
+.settings-panel.show {
+    display: flex;
 }
