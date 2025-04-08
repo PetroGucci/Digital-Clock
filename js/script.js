@@ -7,6 +7,7 @@ const min = $('.min');
 const sec = $('.sec');
 const week = $('.week');
 const locationInfo = $('.location-info'); 
+const formatTime = document.querySelector('.format-time');
 
 let showDot = true;
 
@@ -22,17 +23,22 @@ let showTimezone = true; // Por defecto, mostrar zona horaria
 const systemFormat = new Intl.DateTimeFormat('default', { hour: 'numeric' }).resolvedOptions().hourCycle;
 is24HourFormat = systemFormat === 'h23';
 
+// Actualizar el estado de AM/PM
+function updateFormatTime(hours) {
+    const isPM = hours >= 12;
+    formatTime.textContent = isPM ? 'PM' : 'AM';
+    formatTime.classList.toggle('active', isPM); // Activa o desactiva el estilo
+}
+
 // Alternar el formato 12H/24H
-toggleFormatButton.addEventListener('click', () => {
-    is24HourFormat = !is24HourFormat;
-    toggleFormatButton.textContent = is24HourFormat ? 'Formato 12H' : 'Formato 24H';
+toggleFormatButton.addEventListener('change', () => {
+    is24HourFormat = toggleFormatButton.checked;
     update(); // Actualizar el reloj
 });
 
 // Alternar la visibilidad de la zona horaria
-toggleTimezoneButton.addEventListener('click', () => {
-    showTimezone = !showTimezone;
-    toggleTimezoneButton.textContent = showTimezone ? 'Ocultar zona horaria' : 'Mostrar zona horaria';
+toggleTimezoneButton.addEventListener('change', () => {
+    showTimezone = toggleTimezoneButton.checked;
     document.querySelector('.GMT').style.display = showTimezone ? 'block' : 'none';
 });
 
@@ -52,6 +58,8 @@ function update() {
     if (!is24HourFormat) {
         hours = hours % 12 || 12; // Convertir a formato 12H
     }
+
+    updateFormatTime(localeTime.getHours()); // Actualizar AM/PM
 
     // Mantener el primer ':' estático o cambiarlo al cambiar el minuto
     if (localeTime.getSeconds() === 0) {

@@ -19,6 +19,7 @@
                 <div>THU</div>
                 <div>FRI</div>
                 <div>SAT</div>
+                <div class="format-time">AM</div> 
             </div>
             <div class="time">
                 <div class="hour">00</div>
@@ -36,8 +37,20 @@
     <div class="settings-container">
         <button class="settings-button">⚙️</button>
         <div class="settings-panel">
-            <button id="toggle-format">Formato 12H/24H</button>
-            <button id="toggle-timezone">Mostrar zona horaria</button>
+            <label>
+                Formato 12H/24H
+                <div class="switch">
+                    <input type="checkbox" id="toggle-format">
+                    <span class="slider"></span>
+                </div>
+            </label>
+            <label>
+                Mostrar zona horaria
+                <div class="switch">
+                    <input type="checkbox" id="toggle-timezone" checked>
+                    <span class="slider"></span>
+                </div>
+            </label>
         </div>
     </div>
     <script src="js/script.js"></script>

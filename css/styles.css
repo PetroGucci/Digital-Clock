@@ -42,6 +42,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 1.5rem 0rem 0rem;
     width: 3rem;
     color: #2d2d2d;
     font-weight: bold;
@@ -59,6 +60,28 @@ header {
 .week .active {
     font-weight: bold;
     color: #ffffff;
+}
+
+.format-time {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem 0rem 0rem;
+    left: 0;
+    width: 3rem;
+    color: #2d2d2d;
+    font-weight: bold;
+    font-family: "Hack";
+    text-align: center;
+    margin-top: 10px; /* Ajusta la distancia desde week */
+    font-size: 1.5rem;
+    color: #2d2d2d; /* Color gris por defecto */
+}
+
+.format-time.active {
+    color: #ffffff; /* Color blanco cuando está activo */
+    font-weight: bold;
 }
 
 .time {
@@ -147,10 +170,19 @@ header {
     flex-direction: column;
     background-color: #2d2d2d;
     color: #ffffff;
+    font-family: "Hack";
     border-radius: 10px;
     padding: 10px;
     margin-top: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px; /* Ajusta el margen para que se deslice hacia arriba */
+    transform: translateY(100%); /* Oculta el panel inicialmente */
+    transition: transform 0.3s ease-in-out; /* Animación de deslizamiento */
+}
+
+.settings-panel.show {
+    display: flex;
+    transform: translateY(0); /* Desliza hacia arriba */
 }
 
 .settings-panel button {
@@ -170,4 +202,50 @@ header {
 
 .settings-panel.show {
     display: flex;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #444;
+    transition: 0.4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #666;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
 }
